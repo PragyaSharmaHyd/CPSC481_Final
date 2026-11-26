@@ -1,16 +1,18 @@
-from http.client import HTTPException
 import json
 from urllib import response
 
 import pandas as pd
 from pathlib import Path
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
+from app.routes.movies import router as movies_router
 
 app = FastAPI(
     title="CineMatch API",
     description="Movie recommendation backend",
     version="1.0.0"
 )
+
+app.include_router(movies_router)
 
 # Locate processed movies dataset
 ROOT_DIR = Path(__file__).resolve().parents[2]
