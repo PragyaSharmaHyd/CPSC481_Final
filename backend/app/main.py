@@ -49,7 +49,7 @@ def search_movies(query: str):
     )]
     return json.loads(results.to_json(orient="records"))
 
-# exceute the following get function to get the movie by id in json format
+# exceute the following get function to get the movie by id
 @app.get("/movies/{movie_id}")
 def get_movie_details(movie_id: int):
 
